@@ -31,6 +31,16 @@ pip install scapy tabulate
 Run the main script directly:
 python main.py
 
+### Optional: Using a Virtual Environment
+
+It is recommended to use a Python virtual environment (`venv`) to isolate dependencies:
+reason: to prevents conflicts with system-wide Python packages, ensures consistent dependencies, and makes it easier to manage and deploy the project safely.
+
+```bash
+python -m venv venv
+source venv/bin/activate   # On Windows use `venv\Scripts\activate`
+pip install scapy tabulate
+```
 
 ## Executable:
   Make sure you have PyInstaller installed:
