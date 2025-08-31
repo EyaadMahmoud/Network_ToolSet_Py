@@ -20,34 +20,31 @@ A Python-based network toolkit for ARP scanning, TCP/UDP port scanning, and pack
 ```bash
 git clone https://github.com/<your-username>/Network_ToolSet_Py.git
 cd Network_ToolSet_Py
-
+```
 
 2. Install dependencies (only required if running from source):
-   ```markdown```
-   pip install scapy tabulate
-
+```markdown
+pip install scapy tabulate
+```
 
 ## Running the Application
-
 Run the main script directly:
 python main.py
 
-Executable:
+
+## Executable:
   Make sure you have PyInstaller installed:
-
-    pip install pyinstaller
-
+pip install pyinstaller
 
 Navigate to the project folder containing main.py and run:
 
 pyinstaller --onefile --windowed main.py
 
-
 This generates an executable in the dist folder. Run the .exe directly without Python installed.
 
-## Usage
 
-1. Launch the GUI.
+## Usage
+ 1. Launch the GUI.
 
 2. Select one of the buttons: Auto Network Scan, Custom Network Scan, TCP + UDP Port Scan, or Packet Sniffer.
 
@@ -57,7 +54,6 @@ This generates an executable in the dist folder. Run the .exe directly without P
 
 
 ## Notes
-Notes
 
 Running the ARP scan, port scan, or packet sniffer may require administrative privileges on some systems.
 
