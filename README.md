@@ -1,10 +1,6 @@
 # Network_ToolSet_Py
 A Python-based network toolkit for ARP scanning, TCP/UDP port scanning, and packet sniffing with a simple GUI interface.
 
-
-
-**A Python-based network toolkit for ARP scanning, TCP/UDP port scanning, and packet sniffing with a simple GUI interface.**
-
 ---
 
 ## Features
@@ -21,9 +17,10 @@ A Python-based network toolkit for ARP scanning, TCP/UDP port scanning, and pack
 
 1. Clone the repository:
 
-```bash```
-      git clone https://github.com/<your-username>/NetToolKit.git
-      cd NetToolKit
+```bash
+git clone https://github.com/<your-username>/Network_ToolSet_Py.git
+cd Network_ToolSet_Py
+
 
 2. Install dependencies (only required if running from source):
    ```markdown```
