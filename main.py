@@ -101,7 +101,7 @@ def udp_and_tcp(target_ip , targetports):
 
 #-------Packet Sniffer
 def packet_sniffer(interf, output_box):
-    output_box.insert(tk.END, f"Performing Sniffing on {interf}    To cancel type Ctrl + C")
+    output_box.insert(tk.END, f"Performing Sniffing on {interf}")
 
     def process_packet(packet): #how to process our packet
         if packet.haslayer(scapy.IP): #make sure packet scapy IP checks out 
