@@ -26,7 +26,8 @@ A Python-based network toolkit for ARP scanning, TCP/UDP port scanning, and pack
       cd NetToolKit
 
 2. Install dependencies (only required if running from source):
-    pip install scapy tabulate
+   ```markdown```
+   pip install scapy tabulate
 
 
 ## Running the Application
