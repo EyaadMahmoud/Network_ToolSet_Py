@@ -47,9 +47,9 @@ pip install scapy tabulate
 pip install pyinstaller
 
 Navigate to the project folder containing main.py and run:
-
+```bash
 pyinstaller --onefile --windowed main.py
-
+```
 This generates an executable in the dist folder. Run the .exe directly without Python installed.
 
 
