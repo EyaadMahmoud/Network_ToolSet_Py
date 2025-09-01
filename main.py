@@ -103,13 +103,13 @@ def udp_and_tcp(target_ip , targetports):
 def packet_sniffer(interf, output_box):
     output_box.insert(tk.END, f"Performing Sniffing on {interf}")
 
-    def process_packet(packet): #how to process our packet
-        if packet.haslayer(scapy.IP): #make sure packet scapy IP checks out 
+    def process_packet(packet):
+        if packet.haslayer(scapy.IP):
             src = packet[scapy.IP].src
             dest = packet[scapy.IP].dest
             output_box.insert(tk.END, f"Source: {src} --- Destination: {dest}\n")
-            output_box.after(0, lambda: output_box.insert(tk.END, f"Source: {src} --- Destination: {dest}\n"))
-    scapy.sniff(iface=interf , prn=process_packet, store=False)
+
+    scapy.sniff(iface=interf, prn=process_packet, store=False)
 #-------Packet Sniffer
 
 
@@ -135,11 +135,22 @@ def tk_udp_and_tcp(output_box):
 import threading
 
 def tk_packet_sniffer(output_box):
-    interf = simpledialog.askstring("Packet Sniffer", "Enter interface preferred (e.g., eth0, wlan0):")
-    if interf:
-        threading.Thread(target=packet_sniffer, args=(interf, output_box), daemon=True).start() #threading to prevent freezing from running on main thread
+    interfaces = scapy.get_if_list()
+    
+    if not interfaces:
+        messagebox.showerror("Error", "No network interfaces found!")
+        return
+    interf = simpledialog.askstring(
+    "Packet Sniffer", 
+    "Enter interface preferred:\neth0 - Ethernet\nwlan0 - Wi-Fi\nlo - Loopback"
+)
 
+    
+    if interf and interf in interfaces:
+        threading.Thread(target=packet_sniffer, args=(interf, output_box), daemon=True).start()  # Run sniffer in a thread to avoid freezing GUI
 
+    else:
+        messagebox.showerror("Error", "Invalid interface selected!")
 #-------Converting the functions into user interface GUI
 
 
