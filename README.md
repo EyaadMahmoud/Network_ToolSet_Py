@@ -10,7 +10,7 @@ A Python-based network toolkit for ARP scanning, TCP/UDP port scanning, and pack
 - **TCP + UDP Port Scan:** Checks common ports (21, 22, 23, 80, 443, 8080) for open/closed status.  
 - **Packet Sniffer:** Monitors network traffic on a chosen interface in real-time.  
 - **User-friendly GUI:** Built with Tkinter and displays results in a scrollable window.
-- **clean line by line comments explaining each line of code
+- clean line by line comments explaining each line of code
 ---
 
 ## Installation
