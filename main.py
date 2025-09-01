@@ -135,22 +135,24 @@ def tk_udp_and_tcp(output_box):
 import threading
 
 def tk_packet_sniffer(output_box):
-    interfaces = scapy.get_if_list()
-    
-    if not interfaces:
-        messagebox.showerror("Error", "No network interfaces found!")
-        return
+    # Get a list of available network interfaces using scapy
+    interfaces = scapy.get_if_list()  # returns a list of interface names
+
+    # Convert the list to a string with each interface on a new line
+    interf_text = "\n".join(interfaces)
+
+    # Ask the user to choose an interface
     interf = simpledialog.askstring(
-    "Packet Sniffer", 
-    "Enter interface preferred:\neth0 - Ethernet\nwlan0 - Wi-Fi\nlo - Loopback"
-)
+        "Packet Sniffer",
+        f"Available interfaces:\n{interf_text}\n\nEnter the interface to sniff:"
+    )
 
-    
-    if interf and interf in interfaces:
-        threading.Thread(target=packet_sniffer, args=(interf, output_box), daemon=True).start()  # Run sniffer in a thread to avoid freezing GUI
-
-    else:
-        messagebox.showerror("Error", "Invalid interface selected!")
+    if interf:
+        if interf not in interfaces:
+            messagebox.showerror("Error", f"{interf} is not a valid interface")
+            return
+        # Run sniffing in a separate thread
+        threading.Thread(target=packet_sniffer, args=(interf, output_box), daemon=True).start()
 #-------Converting the functions into user interface GUI
 
 
